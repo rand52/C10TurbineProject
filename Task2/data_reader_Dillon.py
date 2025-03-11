@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 
-
+#This data reader is for macbook users (this one specifically for Dillon), the file path is different for windows users
 
 # Change directory to Downloads (where the "Data" folder is located)
 os.chdir("/Users/dillonwaaijenberg/Downloads")
