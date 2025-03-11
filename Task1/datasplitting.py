@@ -7,8 +7,9 @@ def DataSplit(filename:str):
   Wind1VelZs = []
   GenPwrs = []
   with open(filename, mode="r", encoding="utf-8") as file:
+    next(file)
     for line in file:
-      Time, Wind1VelX, Wind1VelY, Wind1VelZ, GenPwr = line.strip().split(",")
+      Time, Wind1VelX, Wind1VelY, Wind1VelZ, GenPwr = line.strip().replace(" ", "").split(",")
       Times.append(float(Time))
       Wind1VelXs.append(float(Wind1VelX))
       Wind1VelYs.append(float(Wind1VelY))
