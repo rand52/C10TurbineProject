@@ -41,7 +41,7 @@ Vx_index = 0
 Vy_index = 1
 Vz_index = 2
 
-for t, line in enumerate(lines[num_probes + skip_lines::]):  # Work after all the probe locations are read
+for t, line in enumerate(lines[num_probes + skip_lines:num_probes + skip_lines+1:]):  # Work after all the probe locations are read
     # read of the time
     line = line.strip("\n")  # removes the new line at the end of the line
     line_parts = line.split("(")  # split on first brackets
@@ -57,7 +57,3 @@ for t, line in enumerate(lines[num_probes + skip_lines::]):  # Work after all th
 
     print(t)
 
-print(velocity_data[0])
-
-# Check data
-#print(x,"\n",y,"\n",z)
