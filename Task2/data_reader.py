@@ -1,8 +1,19 @@
 import numpy as np
 import pandas as pd
+import os
+
+
+
+# Change directory to Downloads (where the "Data" folder is located)
+os.chdir("/Users/dillonwaaijenberg/Downloads")
+
+# Now "Data/U_withAGW" works!
+file_path = "Data/U_withAGW"
+
+
 
 # File path
-file_path = "Data/U_withAGW" 
+#file_path = "Data/U_withAGW" 
 # Num. lines with probes
 num_probes = 3572
 # space between position data and velocity data
