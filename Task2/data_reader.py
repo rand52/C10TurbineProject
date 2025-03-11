@@ -62,5 +62,3 @@ print(velocity_data[0])
 # Check data
 #print(x,"\n",y,"\n",z)
 
-import os
-print(os.getcwd())  # Prints the current working directory
