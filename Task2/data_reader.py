@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # File path
-file_path = "Data/U_withAGW"
+file_path = "Data/U_withAGW" 
 # Num. lines with probes
 num_probes = 3572
 # space between position data and velocity data
@@ -61,3 +61,6 @@ print(velocity_data[0])
 
 # Check data
 #print(x,"\n",y,"\n",z)
+
+import os
+print(os.getcwd())  # Prints the current working directory
