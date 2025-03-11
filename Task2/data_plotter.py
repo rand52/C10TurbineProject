@@ -39,14 +39,14 @@ ax.set_xlabel('X coord [m]')
 ax.set_ylabel('Y coord [m]')
 ax.set_zlabel('Z coord [m]')
 # set the title as an object to update it with the update func for the animation
-title = ax.set_title(f'3D Cloud Map at time step {time_steps[0]} sec')
+title = ax.set_title(f'Velocity 3D Map at time {time_steps[0]} sec')
 
 
 def update(frame):
     print(f"Drawing frame {frame}/{len(time_steps)}")
     v_z = velocity_data[frame, :, Vx_index]  # Update velocity data
     sc.set_array(v_z)  # Update color values for new v data
-    title.set_text(f'3D Cloud Map at time step {time_steps[frame]} sec')  # update the title
+    title.set_text(f'Velocity 3D Map at time {time_steps[frame]} sec')  # update the title
     return sc, title
 
 
