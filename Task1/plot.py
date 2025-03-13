@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from numpy.typing import NDArray
 import numpy as np
+
 def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
     for data in data_arrays:
         if not isinstance(data, np.ndarray):
@@ -10,6 +11,7 @@ def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
     plt.xlabel("Uref[m/s^2]")
     plt.ylabel("Power produced[W]")
     plt.title(f"Power curve for {dataname}")
+    plt.legend(fontsize=8, loc='best')
     plt.grid(True)
     plt.show()
 
