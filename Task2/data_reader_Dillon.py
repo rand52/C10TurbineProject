@@ -1,13 +1,9 @@
 import numpy as np
-import pandas as pd
-import os
+import math as mt
+import os 
 
-#This data reader is for macbook users (this one specifically for Dillon), the file path is different for windows users
-
-# Change directory to Downloads (where the "Data" folder is located)
 os.chdir("/Users/dillonwaaijenberg/Downloads")
-
-# Now "Data/U_withAGW" works!
+# File path
 file_path = "Data/U_withAGW"
 
 # time offset of start of data gathering since simulation start
@@ -93,5 +89,3 @@ def get_velocity_data(time_between_datapts=10):
         print(f"Reading line {t}/{num_datpts}")
 
     return velocity_data,time_steps
-
-
