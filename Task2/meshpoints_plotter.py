@@ -23,7 +23,7 @@ num_mesh_points = velocity_data.shape[1]  # Assuming columns are mesh points
 num_time_steps = velocity_data.shape[0]    # Assuming rows are time steps
 
 # Select three mesh points (specific indices)
-selected_points = [100, 500, 1000]  # Change these indices as needed
+selected_points = [85, 758, 3478]  # Change these indices as needed
 
 time = time_steps  # Use provided time steps from data
 
