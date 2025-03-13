@@ -9,7 +9,7 @@ def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
     for i, data in enumerate(data_arrays):
         plt.plot(data_arrays[i][:, 0], data_arrays[i][:, 1], label=labels[i])
     plt.xlabel("Uref[m/s^2]")
-    plt.ylabel("Power produced[W]")
+    plt.ylabel("Power produced[kW]")
     plt.title(f"Power curve for {dataname}")
     plt.legend(fontsize=8, loc='best')
     plt.grid(True)
