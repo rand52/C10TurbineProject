@@ -44,16 +44,3 @@ while testing:
     retry = simpledialog.askstring("Plot More?", "Plot more data? (y/n):")
     if retry and retry.lower() == "n":
         testing = False
-
-# testing = True
-# while testing:
-#   number = input("Number of data to be plotted: ")
-#   data_list = []
-#   labels = []
-#   for i in range(int(number)):
-#     Call_dataset = input(f"Folder name of desired data{i}: ")
-#     data_list.append(DataSet[Call_dataset])
-#     labels.append(Call_dataset)
-#   plot_data(*data_list,labels=labels)
-#   if input("Plot more data? (y/n): ") == "n":
-#     testing = False
