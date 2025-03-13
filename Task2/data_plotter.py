@@ -2,11 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # imports of internal data from reader
-from data_reader import x, y, z, velocity_data, time_steps, Vx_index, Vy_index, Vz_index
-
-##### selecting the desired time steps for the animation
-simulation_time_between_frames = 10 # sec between two consecutive frames in the simulation data
-simulation_time_step = 0.5 # sec
+from data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
 ##### individual plot parameters ######
 transparency = 0.7  # 0=completely transparent 1=completely solid
@@ -14,17 +10,18 @@ size = 10
 marker_type = 'o'  # 'o' = circles ; 's' = squares; '*'= stars
 
 ##### animation parameters #####
-interval = 200  # time in milliseconds between two frames in gif
+fps = 10  # frames in a sec
 
+# time_step from the simulation at which data is presented
+data_time_step = 10  # sec
 
-# select data to be plotted
-splitter = round(simulation_time_between_frames/simulation_time_step)
-time_steps = time_steps [::splitter]
-velocity_data = velocity_data [::splitter,:,:]
-
+# load probe locations
+x,y,z = get_probe_locations()
+# load velocity data
+velocity_data, time_steps = get_velocity_data(time_between_datapts=data_time_step)
 
 # Initialize plot with first frame
-v_z = velocity_data[0, :, Vx_index]  # First time step
+v_z = velocity_data[0, :, Vx_index]  # First time step of respective velocity component
 # Create a 3d figure
 fig = plt.figure(figsize=(10, 10))
 ax = fig.add_subplot(111, projection='3d')
@@ -51,8 +48,7 @@ def update(frame):
 
 
 # Create animation
-ani = animation.FuncAnimation(fig, update, frames=len(time_steps), interval=200, blit=False)
+ani = animation.FuncAnimation(fig, update, frames=len(time_steps), blit=False)
 
 # Save as GIF
-ani.save('3d_animation.gif', writer='pillow', fps=10)
-
+ani.save('3d_animation.gif', writer='pillow', fps=fps)
