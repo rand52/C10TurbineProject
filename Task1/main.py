@@ -1,5 +1,4 @@
 from datasplitting import DataSplit
-#from plot import plot_data
 from window import select_datasets
 import numpy as np
 import os
