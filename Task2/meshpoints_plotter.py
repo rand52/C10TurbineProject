@@ -9,15 +9,16 @@ from data_reader_Dillon import velocity_data, time_steps
 from data_reader_Dillon import Vx_index, Vy_index, Vz_index
 
 # Debugging step: Print shapes
-#print(f"time_steps shape: {time_steps.shape}")
-#print(f"velocity_data shape: {velocity_data.shape}")
+
+print(f"time_steps shape: {time_steps.shape}")
+print(f"velocity_data shape: {velocity_data.shape}")
 
 # Ensure matching dimensions
 if velocity_data.shape[0] != len(time_steps):
     min_length = min(velocity_data.shape[0], len(time_steps))
     time_steps = time_steps[:min_length]
     velocity_data = velocity_data[:min_length, :, :]
-    #print("Adjusted time_steps and velocity_data to match dimensions.")
+    print("Adjusted time_steps and velocity_data to match dimensions.")
 
 num_mesh_points = velocity_data.shape[1]  # Assuming columns are mesh points
 num_time_steps = velocity_data.shape[0]    # Assuming rows are time steps
