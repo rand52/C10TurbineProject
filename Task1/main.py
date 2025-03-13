@@ -24,7 +24,7 @@ with Progress() as progress:
     for i in range(file_count):
       file_path = f"Task1/Data/{filename}/{names[i]}"
       if not os.path.exists(file_path):
-          print(f"File not found: {file_path}, skipping...")
+          #print(f"File not found: {file_path}, skipping...")
           continue
       Times, Wind1VelXs, Wind1VelYs, Wind1VelZs, GenPwrs = DataSplit(file_path)
 
