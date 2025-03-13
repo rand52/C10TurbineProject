@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # imports of internal data from reader
-from data_reader import x, y, z, velocity_data, time_steps, Vx_index, Vy_index, Vz_index
+from data_reader_Dillon import x, y, z, velocity_data, time_steps, Vx_index, Vy_index, Vz_index
 
 ##### selecting the desired time steps for the animation
 simulation_time_between_frames = 10 # sec between two consecutive frames in the simulation data
