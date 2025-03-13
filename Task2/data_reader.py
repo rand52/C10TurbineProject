@@ -1,8 +1,9 @@
 import numpy as np
-import pandas as pd
 
 # File path
-file_path = "Data/U_withAGW" 
+file_path = "Data/U_withAGW"
+# time offset of start of data gathering since simulation start
+time_start_point = 21600
 # Num. lines with probes
 num_probes = 3572
 # space between position data and velocity data
@@ -45,7 +46,7 @@ for t, line in enumerate(lines[num_probes + skip_lines::]):  # Work after all th
     # read of the time
     line = line.strip("\n")  # removes the new line at the end of the line
     line_parts = line.split("(")  # split on first brackets
-    time_steps[t] = float(line_parts[0])
+    time_steps[t] = float(line_parts[0]) - time_start_point
     # process the rest of the datapoints on the line into the velocity components
     for i, datpt in enumerate(line_parts[1::]):
         # trip and split data from (vx,vy,vz) to arr[vx,vy,vz]
@@ -55,10 +56,5 @@ for t, line in enumerate(lines[num_probes + skip_lines::]):  # Work after all th
         # save datapoint
         velocity_data[t, i] = data
 
-    print(t)
-
-print(velocity_data[0])
-
-# Check data
-#print(x,"\n",y,"\n",z)
+    print(f"Reading line {t}/{num_time_steps}")
 
