@@ -20,7 +20,7 @@ def plot_data(data:NDArray, dataname:str):
     plt.plot(x, y, marker='o', linestyle='-')  # Line plot with markers
     plt.xlabel("Uref[m/s^2]")
     plt.ylabel("Power produced[W]")
-    plt.title("Power curve for")
+    plt.title(f"Power curve for {dataname}")
     plt.grid(True)
     plt.show()
 
