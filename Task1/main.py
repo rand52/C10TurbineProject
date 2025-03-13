@@ -39,8 +39,14 @@ with Progress() as progress:
     progress.update(task, advance=1)
 testing = True
 while testing:
-  Call_dataset = input("Folder name of desired data: ")
-  plot_data(DataSet[Call_dataset],Call_dataset)
+  number = input("Number of data to be plotted: ")
+  data_list = []
+  labels = []
+  for i in range(number):
+    Call_dataset = input(f"Folder name of desired data{i}: ")
+    data_list.append(DataSet[Call_dataset])
+    labels.append(Call_dataset)
+  plot_data(*data_list,labels=labels)
   if input("Plot more data? (y/n): ") == "n":
     testing = False
 
