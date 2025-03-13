@@ -3,10 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Importing data from data_reader_Dillon
-from data_reader_Dillon import velocity_data, time_steps
+from data_reader_Dillon import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
-# Extract velocity components indices
-from data_reader_Dillon import Vx_index, Vy_index, Vz_index
+velocity_data, time_steps = get_velocity_data(time_between_datapts=10)
 
 # Debugging step: Print shapes
 
