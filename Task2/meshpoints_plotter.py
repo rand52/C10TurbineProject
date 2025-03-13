@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Importing data from data_reader_Dillon
 from data_reader_Dillon import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
-velocity_data, time_steps = get_velocity_data(time_between_datapts=1)
+velocity_data, time_steps = get_velocity_data(time_between_datapts=10)
 
 # Debugging step: Print shapes
 print(f"time_steps shape: {time_steps.shape}")
@@ -25,20 +25,53 @@ num_time_steps = velocity_data.shape[0]    # Assuming rows are time steps
 
 # Select three mesh points (specific indices)
 selected_points = [85, 758, 3478]  # Change these indices as needed
+Horizontal_points = [85, 758, 3478] #Change these as the horizontal points
+Vertical_points = [85, 758, 3478] #Change these as the vertical points
 
 time = time_steps  # Use provided time steps from data
 
 # Plot velocity for selected mesh points
-def plot_velocity():
+def plot_velocity_random():
     plt.figure(figsize=(10, 5))
     for idx in selected_points:
         plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
     
     plt.xlabel('Time [s]')
     plt.ylabel('Velocity (Vx) [m/s]')
-    plt.title('Velocity vs Time for Selected Mesh Points')
+    plt.title('Velocity vs Time for Randomly Selected Mesh Points')
     plt.legend()
     plt.grid()
     plt.show()
 
-plot_velocity()
+plot_velocity_random()
+
+def plot_velocity_horizontal():
+    plt.figure(figsize=(10, 5))
+    for idx in Horizontal_points:
+        plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
+    
+    plt.xlabel('Time [s]')
+    plt.ylabel('Velocity (Vx) [m/s]')
+    plt.title('Velocity vs Time for Horizontal Mesh Points')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+plot_velocity_horizontal()
+
+def plot_velocity_vertical():
+    plt.figure(figsize=(10, 5))
+    for idx in Vertical_points:
+        plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
+
+    plt.xlabel('Time [s]')
+    plt.ylabel('Velocity (Vx) [m/s]')
+    plt.title('Velocity vs Time for Vertical Mesh Points')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+plot_velocity_vertical()
+
+
+

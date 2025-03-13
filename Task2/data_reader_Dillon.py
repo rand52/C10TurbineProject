@@ -2,6 +2,8 @@ import numpy as np
 import math as mt
 import os 
 
+#Directory for MacBook users and especially for Dillon
+
 os.chdir("/Users/dillonwaaijenberg/Downloads")
 # File path
 file_path = "Data/U_withAGW"
