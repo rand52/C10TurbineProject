@@ -9,9 +9,16 @@ def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
         plt.plot(data_arrays[i][:, 0], data_arrays[i][:, 1], label=labels[i])
     plt.xlabel("Uref[m/s^2]")
     plt.ylabel("Power produced[W]")
+    plt.legend()
     plt.title(f"Power curve for {dataname}")
     plt.grid(True)
     plt.show()
+    user_input = input("Do you want to save the plot? (yes/no): ").strip().lower()
+
+    if user_input in ['yes', 'y']:
+        save_path = input("Enter the filename (e.g., plot.png): ").strip()
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Plot saved as {save_path}")
 
 if __name__ == "__main__":
     data1 = np.array([[1, 2], [2, 4], [3, 1], [4, 3], [5, 5]])
