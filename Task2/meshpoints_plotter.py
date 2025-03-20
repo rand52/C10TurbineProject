@@ -1,13 +1,10 @@
-import data_reader_Dillon as data
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
 # Importing data from data_reader_Dillon
-from data_reader_Dillon import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
+from data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
-velocity_data, time_steps = get_velocity_data(time_between_datapts=1)
+velocity_data, time_steps = get_velocity_data(time_between_datapts=50)
 
 # Debugging step: Print shapes
 print(f"time_steps shape: {time_steps.shape}")
