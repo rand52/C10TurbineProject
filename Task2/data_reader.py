@@ -1,9 +1,10 @@
 import numpy as np
 import os
 
-# File path
+# File path MAC and Windows
 current_file_path = os.path.abspath(__file__)
-file_path = os.path.join(os.path.dirname(current_file_path), 'Data', 'U_withAGW')
+current_dir = os.path.dirname(current_file_path)
+file_path = os.path.join(current_dir, 'Data', 'U_withAGW')
 
 # time offset of start of data gathering since simulation start
 time_start_point = 21600

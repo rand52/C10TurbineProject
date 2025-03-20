@@ -11,10 +11,6 @@ directory = 'plots'
 # Create the directory if it doesn't exist
 os.makedirs(directory, exist_ok=True)
 
-# Debugging step: Print shapes
-print(f"time_steps shape: {time_steps.shape}")
-print(f"velocity_data shape: {velocity_data.shape}")
-
 # Ensure matching dimensions
 if velocity_data.shape[0] != len(time_steps):
     min_length = min(velocity_data.shape[0], len(time_steps))
