@@ -36,7 +36,9 @@ def select_datasets(DataSet):
 
         # Plot the selected datasets
         if data_list:
-            plot_data(*data_list, labels=labels)
+            plot_data(data_list,labels = labels)
+            data_list = []
+            labels = []
 
     confirm_button = tk.Button(selection_window, text="Confirm", command=confirm_selection)
     confirm_button.pack(pady=10)

@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
+import os
 from numpy.typing import NDArray
 import numpy as np
-def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
+def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
     for data in data_arrays:
         if not isinstance(data, np.ndarray):
             raise ValueError("All input data must be NumPy arrays")
@@ -12,13 +13,16 @@ def plot_data(*data_arrays, labels=None, dataname:str="Unnamed"):
     plt.legend()
     plt.title(f"Power curve for {dataname}")
     plt.grid(True)
-    plt.show()
-    user_input = input("Do you want to save the plot? (yes/no): ").strip().lower()
-
-    if user_input in ['yes', 'y']:
+    if not save:
+        plt.show()
+        plt.close()
+        user_input = input("Do you want to save the plot? (yes/no): ").strip().lower()
+        if user_input in ['yes', 'y']:
+            plot_data(data_arrays, labels = labels, save = True)
+    else:
         save_path = input("Enter the filename (e.g., plot.png): ").strip()
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"Plot saved as {save_path}")
+        plt.close()
 
 if __name__ == "__main__":
     data1 = np.array([[1, 2], [2, 4], [3, 1], [4, 3], [5, 5]])
