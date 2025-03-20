@@ -16,13 +16,15 @@ with Progress() as progress:
   task = progress.add_task("[cyan]Processing...", total=len(File_Names))
 
   for filename in File_Names:
-    folder_path = f"Task1/Data/{filename}"
+    current_file_path = os.path.abspath(__file__)
+    current_dir = os.path.dirname(current_file_path)
+    folder_path = os.path.join(current_dir, 'Data', filename)
     files = os.listdir(folder_path)  # Get all files and folders in the directory
     file_count = len([f for f in files if os.path.isfile(os.path.join(folder_path, f))])
     windspeed = [0,1,2]
     power = [0,1,2]
     for i in range(file_count):
-      file_path = f"Task1/Data/{filename}/{names[i]}"
+      file_path = os.path.join(current_dir, 'Data', filename, names[i])
       if not os.path.exists(file_path):
           print(f"File not found: {file_path}, skipping...")
           continue
