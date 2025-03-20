@@ -1,10 +1,15 @@
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 
-# Importing data from data_reader_Dillon
+# Importing data
 from data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
-velocity_data, time_steps = get_velocity_data(time_between_datapts=50)
+velocity_data, time_steps = get_velocity_data(time_between_datapts=10)
+
+directory = 'plots'
+# Create the directory if it doesn't exist
+os.makedirs(directory, exist_ok=True)
 
 # Debugging step: Print shapes
 print(f"time_steps shape: {time_steps.shape}")
@@ -35,9 +40,9 @@ def plot_velocity_random():
         plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
 
         # Add text in the bottom-right corner
-        plt.text(0.95, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s', 
+        plt.text(0.98, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s',
                 transform=plt.gca().transAxes,  # Use axis coordinates
-                fontsize=12, color='black', 
+                fontsize=10, color='black',
                 ha='right', va='bottom')
         offset += 0.05
 
@@ -47,6 +52,7 @@ def plot_velocity_random():
     plt.title('Velocity vs Time for Randomly Selected Mesh Points')
     plt.legend()
     plt.grid()
+    plt.savefig(directory + '/random_points_velocities.png')
     plt.show()
 
 plot_velocity_random()
@@ -60,9 +66,9 @@ def plot_velocity_horizontal():
         plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
        
         # Add text in the bottom-right corner
-        plt.text(0.95, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s', 
+        plt.text(0.98, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s',
                 transform=plt.gca().transAxes,  # Use axis coordinates
-                fontsize=12, color='black', 
+                fontsize=10, color='black',
                 ha='right', va='bottom')
         offset += 0.05
 
@@ -71,6 +77,7 @@ def plot_velocity_horizontal():
     plt.title('Velocity vs Time for Horizontal Mesh Points')
     plt.legend()
     plt.grid()
+    plt.savefig(directory + '/horizontal_points_velocities.png')
     plt.show()
 
 plot_velocity_horizontal()
@@ -82,9 +89,9 @@ def plot_velocity_vertical():
         plt.plot(time, velocity_data[:, idx, Vx_index], label=f'Mesh Point {idx}')
        
         # Add text in the bottom-right corner
-        plt.text(0.95, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s', 
+        plt.text(0.98, 0.95-offset, f'Mesh pt {idx} V avg. {np.average(velocity_data[:, idx, Vx_index]):.2f} m/s',
                 transform=plt.gca().transAxes,  # Use axis coordinates
-                fontsize=12, color='black', 
+                fontsize=10, color='black',
                 ha='right', va='bottom')
         offset += 0.05
 
@@ -94,6 +101,7 @@ def plot_velocity_vertical():
     plt.title('Velocity vs Time for Vertical Mesh Points (lowest number is highest point)')
     plt.legend()
     plt.grid()
+    plt.savefig(directory + '/vertical_points_velocities.png')
     plt.show()
 
 plot_velocity_vertical()
