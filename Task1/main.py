@@ -49,6 +49,3 @@ while testing:
   plot_data(*data_list,labels=labels)
   if input("Plot more data? (y/n): ") == "n":
     testing = False
-
-
-
