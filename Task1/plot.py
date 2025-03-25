@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import os
 from numpy.typing import NDArray
 import numpy as np
+from tkinter import simpledialog
+
 def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
     for data in data_arrays:
         if not isinstance(data, np.ndarray):
@@ -16,11 +18,11 @@ def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
     if not save:
         plt.show()
         plt.close()
-        user_input = input("Do you want to save the plot? (yes/no): ").strip().lower()
+        user_input = simpledialog.askstring("save plot", "Do you want to save the plot? (yes/no): ").strip().lower()
         if user_input in ['yes', 'y']:
-            plot_data(data_arrays, labels = labels, save = True)
+            plot_data(data_arrays, labels = labels,dataname =dataname, save = True)
     else:
-        save_path = input("Enter the filename (e.g., plot.png): ").strip()
+        save_path = simpledialog.askstring("Filename", "Enter the filename (e.g., plot.png): ").strip()
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close()
 

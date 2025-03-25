@@ -1,5 +1,6 @@
 import tkinter as tk
 from plot import plot_data
+from tkinter import simpledialog
 
 File_Names = ['noshear TIC_veer0.2','noshear TIC_veer0.4','noshear_TIA_veer0.2','noshear_TIA_veer0.4','noshear_TIA_veer0.05','noshear_TIC_veer0.05','noTI_shear0.2_veer0.2','noTI_shear0.2_veer0.4','noTI_shear0.2_veer0.05','noTI_shear0.12_veer0.2','noTI_shear0.12_veer0.4','noTI_shear0.12_veer0.05','noveer_shear0.2_TIA','noveer_shear0.2_TIC','noveer_shear0.12_TIA','noveer_shear0.12_TIC','shear0.2','shear0.12','TIA','TIC','Uniform_noshear_noveer_noTI','veer0.2','veer0.4','veer0.05']
 
@@ -36,7 +37,7 @@ def select_datasets(DataSet):
 
         # Plot the selected datasets
         if data_list:
-            plot_data(data_list,labels = labels)
+            plot_data(data_list,labels = labels, dataname = simpledialog.askstring("plot more? ", "What are you plotting? "))
             data_list = []
             labels = []
 
