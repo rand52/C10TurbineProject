@@ -20,7 +20,7 @@ def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
         plt.close()
         user_input = simpledialog.askstring("save plot", "Do you want to save the plot? (yes/no): ").strip().lower()
         if user_input in ['yes', 'y']:
-            plot_data(data_arrays, labels = labels, save = True)
+            plot_data(data_arrays, labels = labels,dataname =dataname, save = True)
     else:
         save_path = simpledialog.askstring("Filename", "Enter the filename (e.g., plot.png): ").strip()
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
