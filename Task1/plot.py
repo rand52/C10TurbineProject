@@ -8,8 +8,9 @@ def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
     for data in data_arrays:
         if not isinstance(data, np.ndarray):
             raise ValueError("All input data must be NumPy arrays")
+    markers = ['o', 's', '^', 'd', '*', 'x', 'v', '>', '<', 'p', 'h', '+', '1', '2', '3', '4', '|', '_', 'D', 'H', '.', ',', 'P', 'X']
     for i, data in enumerate(data_arrays):
-        plt.plot(data_arrays[i][:, 0], data_arrays[i][:, 1], label=labels[i])
+        plt.plot(data_arrays[i][:, 0], data_arrays[i][:, 1], label=labels[i], marker=markers[i % len(markers)])
     plt.xlabel("Uref[m/s^2]")
     plt.ylabel("Power produced[W]")
     plt.legend()
