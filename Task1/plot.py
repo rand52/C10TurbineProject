@@ -11,8 +11,8 @@ def plot_data(data_arrays,labels = None, save =False, dataname:str="Unnamed"):
     markers = ['o', 's', '^', 'd', '*', 'x', 'v', '>', '<', 'p', 'h', '+', '1', '2', '3', '4', '|', '_', 'D', 'H', '.', ',', 'P', 'X']
     for i, data in enumerate(data_arrays):
         plt.plot(data_arrays[i][:, 0], data_arrays[i][:, 1], label=labels[i], marker=markers[i % len(markers)])
-    plt.xlabel("Uref[m/s^2]")
-    plt.ylabel("Power produced[W]")
+    plt.xlabel(r'Velocity $\left[\frac{\mathit{m}}{\mathit{s}}\right]$', fontsize=15)
+    plt.ylabel("Power produced[W]", fontsize=15)
     plt.legend()
     plt.title(f"Power curve for {dataname}")
     plt.grid(True)
