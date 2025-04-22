@@ -20,12 +20,22 @@ x,y,z = get_probe_locations()
 # load velocity data
 velocity_data, time_steps = get_velocity_data(time_between_datapts=data_time_step)
 
+# select only base points
+mask = (z <= 50)
+x = x[mask]
+y = y[mask]
+z = z[mask]
+velocity_data = velocity_data[:, mask, :]
+
 # Initialize plot with first frame
 v_z = velocity_data[0, :, Vx_index]  # First time step of respective velocity component
 # Create a 3d figure
 fig = plt.figure(figsize=(10, 10))
 ax = fig.add_subplot(111, projection='3d')
 sc = ax.scatter(x, y, z, c=v_z, cmap='viridis', marker=marker_type, alpha=transparency, s=size)
+
+# Compress z-axis for clarity
+ax.set_box_aspect([1, 1, 0.1])  # Compress Z-axis
 
 # Add color bar
 cbar = plt.colorbar(sc, ax=ax, shrink=0.5, aspect=10)
@@ -36,7 +46,7 @@ ax.set_xlabel('X coord [m]')
 ax.set_ylabel('Y coord [m]')
 ax.set_zlabel('Z coord [m]')
 # set the title as an object to update it with the update func for the animation
-title = ax.set_title(f'Velocity 3D Map at time {time_steps[0]} sec')
+title = ax.set_title(f'Velocity 3D Map at turbine base, time {time_steps[0]} sec')
 
 
 def update(frame):
