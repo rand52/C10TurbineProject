@@ -79,7 +79,7 @@ def get_velocity_data(time_between_datapts=10):
         time_steps[t] = float(line_parts[0]) - time_start_point
         # process the rest of the datapoints on the line into the velocity components
         for i, datpt in enumerate(line_parts[1::]):
-            # trip and split data from (vx,vy,vz) to arr[vx,vy,vz]
+            # strip and split data from (vx,vy,vz) to arr[vx,vy,vz]
             stripped_data = datpt.strip(') ')  # remove second bracket and spaces if they are present
             data = stripped_data.split()
             data = np.array(data).astype(float)
