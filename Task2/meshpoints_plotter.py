@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 
 # Importing data
-from data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
+from velocity_data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
 velocity_data, time_steps = get_velocity_data(time_between_datapts=10)
 

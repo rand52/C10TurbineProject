@@ -1,4 +1,4 @@
-from data_reader import get_probe_locations, get_velocity_data
+from velocity_data_reader import get_probe_locations, get_velocity_data
 import math as mt
 
 x, y, z = get_probe_locations()

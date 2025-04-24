@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # imports of internal data from reader
-from data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
+from velocity_data_reader import get_probe_locations, get_velocity_data, Vx_index, Vy_index, Vz_index
 
 ##### individual plot parameters ######
 transparency = 0.7  # 0=completely transparent 1=completely solid
