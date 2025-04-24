@@ -11,12 +11,11 @@ def turbulence(folder_path):
     for name in names:
         file_path = os.path.join(folder_path, name)
         if not os.path.exists(file_path):
-            print(f"File not found: {file_path}, skipping...")
+            #print(f"File not found: {file_path}, skipping...")
             continue
         Times, Wind1VelXs, Wind1VelYs, Wind1VelZs, GenPwrs = DataSplit(file_path)
         meanwind.append(np.mean(Wind1VelXs)) 
         defwind.append(np.std(Wind1VelXs))
-
 
     turbulence = []
     for i in range(len(meanwind)):
@@ -25,3 +24,4 @@ def turbulence(folder_path):
 
 print(np.mean(turbulence("Task1/Data/TIA")))
 print(np.mean(turbulence("Task1/Data/TIC")))
+print(np.mean(turbulence("Task1/Data/Uniform_noshear_noveer_noTI")))
