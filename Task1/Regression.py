@@ -113,4 +113,4 @@ while running:
     
     retry = simpledialog.askstring("Predict More?", "Predict more data? (y/n):")
     if retry and retry.lower() == "n":
-        testing = False
+        running = False
