@@ -22,6 +22,9 @@ def turbulence(folder_path):
         turbulence.append(defwind[i]/meanwind[i])
     return turbulence
 
+print(turbulence("Task1/Data/TIA"))
 print(np.mean(turbulence("Task1/Data/TIA")))
+print(turbulence("Task1/Data/TIC"))
 print(np.mean(turbulence("Task1/Data/TIC")))
+print(turbulence("Task1/Data/Uniform_noshear_noveer_noTI"))
 print(np.mean(turbulence("Task1/Data/Uniform_noshear_noveer_noTI")))
