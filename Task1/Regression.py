@@ -2,6 +2,7 @@ from datasplitting import DataSplit
 import numpy as np
 import os
 from rich.progress import Progress
+from tkinter import simpledialog
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from window_regression import get_four_values
@@ -101,9 +102,15 @@ model = LinearRegression()
 model.fit(X_poly, y)
 
 # Make a prediction
-values = get_four_values()
-prediction_x = np.array([values])  # Same number of features as original X
-prediction_x_poly = poly.transform(prediction_x)
-prediction = model.predict(prediction_x_poly)
+running = True
+while running:
+    values = get_four_values()
+    prediction_x = np.array([values])  # Same number of features as original X
+    prediction_x_poly = poly.transform(prediction_x)
+    prediction = model.predict(prediction_x_poly)
 
-print(prediction)
+    print(prediction)
+    
+    retry = simpledialog.askstring("Predict More?", "Predict more data? (y/n):")
+    if retry and retry.lower() == "n":
+        testing = False
