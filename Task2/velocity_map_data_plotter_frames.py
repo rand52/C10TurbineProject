@@ -11,7 +11,7 @@ size = 10
 marker_type = 'o'  # 'o' = circles; 's' = squares; '*' = stars
 
 ##### Simulation parameters #####
-data_time_step = 10  # seconds per time step
+data_time_step = 250  # seconds per time step
 
 # Load probe locations
 x, y, z = get_probe_locations()
