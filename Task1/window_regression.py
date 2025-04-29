@@ -12,7 +12,7 @@ def get_four_values():
 
     popup = tk.Tk()
     popup.title("Enter the four inflow parameters")
-    popup.geometry("300x200")
+    popup.geometry("350x200")
 
     values = []
 
