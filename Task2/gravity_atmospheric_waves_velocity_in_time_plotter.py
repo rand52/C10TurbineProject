@@ -58,14 +58,13 @@ plt.figure(figsize=(30, 8))
 sc = plt.scatter(time, height, c=velocity, cmap='viridis', alpha=0.7, s=100)
 # Add color bar
 cbar = plt.colorbar(sc)  # Add color bar to the scatter plot
-cbar.set_label("Vx [m/s]", fontsize=20)  # Set label for the color bar
-cbar.ax.tick_params(labelsize=20)  # Make numbers on color bar bigger
+cbar.set_label("Vx [m/s]", fontsize=35)  # Set label for the color bar
+cbar.ax.tick_params(labelsize=24)  # Make numbers on color bar bigger
 # Bigger labels numbers
-plt.tick_params(axis='both', labelsize=14)
+plt.tick_params(axis='both', labelsize=15)
 # Labels
-plt.ylabel('Z coord [m]', fontsize=20)
-plt.xlabel('Time [s]', fontsize=20)
-plt.title('Velocity in time', fontsize=30)
+plt.ylabel('Z coord [m]', fontsize=30)
+plt.xlabel('Time [s]', fontsize=30)
 
 # Save the fig
 plt_name = os.path.join(output_folder, f"velocity_in_time_Z_plot.png")
@@ -106,14 +105,13 @@ plt.figure(figsize=(30, 10))
 sc = plt.scatter(time, width, c=velocity, cmap='viridis', alpha=0.7, s=100)
 # Add color bar
 cbar = plt.colorbar(sc)  # Add color bar to the scatter plot
-cbar.set_label("Vx [m/s]", fontsize=20)  # Set label for the color bar
-cbar.ax.tick_params(labelsize=20)  # Make numbers on color bar bigger
+cbar.set_label("Vx [m/s]", fontsize=35)  # Set label for the color bar
+cbar.ax.tick_params(labelsize=24)  # Make numbers on color bar bigger
 # Bigger labels numbers
-plt.tick_params(axis='both', labelsize=14)
+plt.tick_params(axis='both', labelsize=15)
 # Labels
-plt.ylabel('Y coord [m]', fontsize=20)
-plt.xlabel('Time [s]', fontsize=20)
-plt.title('Velocity in time', fontsize=30)
+plt.ylabel('Y coord [m]', fontsize=32)
+plt.xlabel('Time [s]', fontsize=32)
 
 # Save the fig
 plt_name = os.path.join(output_folder, f"velocity_in_time_Y_plot.png")
