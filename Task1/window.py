@@ -37,7 +37,7 @@ def select_datasets(DataSet):
 
         # Plot the selected datasets
         if data_list:
-            plot_data(data_list,labels = labels, dataname = simpledialog.askstring("plot more? ", "What are you plotting? "))
+            plot_data(data_list,labels = labels)
             data_list = []
             labels = []
 

@@ -44,7 +44,7 @@ while testing:
 
     # After the plot is done and the window is closed, ask if they want to plot more data
     retry = simpledialog.askstring("Plot More?", "Plot more data? (y/n):")
-    if retry and retry.lower() == "n":
+    if retry and retry.lower() in ['no', "n"]:
         testing = False
 
 # testing = True
