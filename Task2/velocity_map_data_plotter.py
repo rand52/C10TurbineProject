@@ -13,7 +13,7 @@ marker_type = 'o'  # 'o' = circles ; 's' = squares; '*'= stars
 fps = 10  # frames in a sec
 
 # time_step from the simulation at which data is presented
-data_time_step = 10  # sec
+data_time_step = 3  # sec
 
 # load probe locations
 x,y,z = get_probe_locations()
@@ -29,14 +29,14 @@ sc = ax.scatter(x, y, z, c=v_z, cmap='viridis', marker=marker_type, alpha=transp
 
 # Add color bar
 cbar = plt.colorbar(sc, ax=ax, shrink=0.5, aspect=10)
-cbar.set_label("Vx [m/s]")
+cbar.set_label("Vx [m/s]", fontsize=18)
 
 # Labels
-ax.set_xlabel('X coord [m]')
-ax.set_ylabel('Y coord [m]')
-ax.set_zlabel('Z coord [m]')
+ax.set_xlabel('X coord [m]', fontsize=15)
+ax.set_ylabel('Y coord [m]', fontsize=15)
+ax.set_zlabel('Z coord [m]', fontsize=15)
 # set the title as an object to update it with the update func for the animation
-title = ax.set_title(f'Velocity 3D Map at time {time_steps[0]} sec')
+title = ax.set_title(f'Velocity 3D Map at time {time_steps[0]} sec', fontsize=20)
 
 
 def update(frame):

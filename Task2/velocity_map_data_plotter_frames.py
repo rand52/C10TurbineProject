@@ -11,7 +11,7 @@ size = 10
 marker_type = 'o'  # 'o' = circles; 's' = squares; '*' = stars
 
 ##### Simulation parameters #####
-data_time_step = 250  # seconds per time step
+data_time_step = 10  # seconds per time step
 
 # Load probe locations
 x, y, z = get_probe_locations()
@@ -34,13 +34,12 @@ for frame in range(len(time_steps)):
 
     # Add color bar
     cbar = plt.colorbar(sc, ax=ax, shrink=0.5, aspect=10)
-    cbar.set_label("Vx [m/s]")
+    cbar.set_label("Vx [m/s]", fontsize=18)
 
     # Labels
-    ax.set_xlabel('X coord [m]')
-    ax.set_ylabel('Y coord [m]')
-    ax.set_zlabel('Z coord [m]')
-    ax.set_title(f'Velocity 3D Map at time {time_steps[frame]} sec')
+    ax.set_xlabel('X coord [m]', fontsize=15)
+    ax.set_ylabel('Y coord [m]', fontsize=15)
+    ax.set_zlabel('Z coord [m]', fontsize=15)
 
     # Save the frame
     frame_filename = os.path.join(output_folder, f"frame_{frame:04d}.png")
